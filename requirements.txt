@@ -1,0 +1,8 @@
+transformers
+datasets
+seqeval
+torch
+psutil
+streamlit
+librosa
+soundfile
