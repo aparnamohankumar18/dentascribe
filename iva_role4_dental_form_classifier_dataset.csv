@@ -1,0 +1,151 @@
+example_id,text,label,diagnosis,procedure,medication,tooth_number,source_type
+46,Tooth 45 is not restorable due to non-restorable tooth; surgical extraction is required.,extraction_form,non-restorable tooth,surgical extraction,clindamycin,45,synthetic_dental_form_example
+112,Patient reports gum bleeding. Exam shows mild periodontitis; dentist advised deep cleaning.,cleaning_form,mild periodontitis,deep cleaning,fluoride,,synthetic_dental_form_example
+116,Patient presents with bleeding gums. Recommended treatment is scaling and polishing and fluoride.,cleaning_form,bleeding gums,scaling and polishing,fluoride,,synthetic_dental_form_example
+113,Hygiene appointment completed. Findings include bleeding gums; procedure performed was dental cleaning.,cleaning_form,bleeding gums,dental cleaning,none,,synthetic_dental_form_example
+59,Oral surgery appointment: tooth extraction planned for tooth 35 because of severe decay.,extraction_form,severe decay,tooth extraction,clindamycin,35,synthetic_dental_form_example
+55,Extraction consent needed for tooth 47. Diagnosis: severe decay. Medication: clindamycin.,extraction_form,severe decay,simple extraction,clindamycin,47,synthetic_dental_form_example
+18,Tooth 35 shows tooth decay. Dentist completed composite filling and advised monitoring sensitivity.,filling_form,tooth decay,composite filling,ibuprofen,35,synthetic_dental_form_example
+135,Emergency visit for oral sensitivity. Dentist completed consultation and discussed next steps.,consultation_form,oral sensitivity,consultation,lidocaine,12,synthetic_dental_form_example
+115,Hygiene appointment completed. Findings include plaque buildup; procedure performed was scaling and polishing.,cleaning_form,plaque buildup,scaling and polishing,fluoride,,synthetic_dental_form_example
+138,Clinical consultation: main complaint is jaw pain; treatment planning was completed.,consultation_form,jaw pain,treatment planning,ibuprofen,37,synthetic_dental_form_example
+78,Severe toothache reported. Tooth 24 diagnosed with deep cavity; dentist recommended canal cleaning.,root_canal_form,deep cavity,canal cleaning,amoxicillin,24,synthetic_dental_form_example
+94,Patient reports gum bleeding. Exam shows mild periodontitis; dentist advised dental cleaning.,cleaning_form,mild periodontitis,dental cleaning,none,,synthetic_dental_form_example
+26,Restorative visit for tooth 33. Diagnosis is tooth decay; treatment provided was restorative filling.,filling_form,tooth decay,restorative filling,lidocaine,33,synthetic_dental_form_example
+88,Severe toothache reported. Tooth 25 diagnosed with pulp infection; dentist recommended canal cleaning.,root_canal_form,pulp infection,canal cleaning,amoxicillin,25,synthetic_dental_form_example
+108,Patient reports gum bleeding. Exam shows mild periodontitis; dentist advised oral hygiene instruction.,cleaning_form,mild periodontitis,oral hygiene instruction,desensitizing gel,,synthetic_dental_form_example
+128,Emergency visit for oral sensitivity. Dentist completed oral examination and discussed next steps.,consultation_form,oral sensitivity,oral examination,none,35,synthetic_dental_form_example
+87,Severe toothache reported. Tooth 25 diagnosed with infected root canal; dentist recommended root canal treatment.,root_canal_form,infected root canal,root canal treatment,metronidazole,25,synthetic_dental_form_example
+84,Endodontic consultation for tooth 31. Findings suggest dental abscess; plan is root canal treatment.,root_canal_form,dental abscess,root canal treatment,amoxicillin,31,synthetic_dental_form_example
+131,New patient consultation for toothache. Assessment included consultation.,consultation_form,toothache,consultation,ibuprofen,12,synthetic_dental_form_example
+53,Tooth 33 is not restorable due to advanced infection; surgical extraction is required.,extraction_form,advanced infection,surgical extraction,ibuprofen,33,synthetic_dental_form_example
+102,Periodontal assessment found plaque buildup. Plan includes deep cleaning and home care instructions.,cleaning_form,plaque buildup,deep cleaning,mouth rinse,,synthetic_dental_form_example
+21,Tooth 38 shows chipped tooth. Dentist completed temporary filling and advised monitoring sensitivity.,filling_form,chipped tooth,temporary filling,fluoride,38,synthetic_dental_form_example
+121,Clinical consultation: main complaint is oral sensitivity; diagnostic assessment was completed.,consultation_form,oral sensitivity,diagnostic assessment,none,43,synthetic_dental_form_example
+8,Patient reports sensitivity while eating. Exam indicates cavity on tooth 17; planned treatment is composite filling.,filling_form,cavity,composite filling,fluoride,17,synthetic_dental_form_example
+22,Patient has dental caries on tooth 16 and requires temporary filling. fluoride was used or recommended.,filling_form,dental caries,temporary filling,fluoride,16,synthetic_dental_form_example
+34,Extraction consent needed for tooth 31. Diagnosis: advanced infection. Medication: ibuprofen.,extraction_form,advanced infection,post extraction care,ibuprofen,31,synthetic_dental_form_example
+140,Emergency visit for facial swelling. Dentist completed x ray review and discussed next steps.,consultation_form,facial swelling,x ray review,ibuprofen,44,synthetic_dental_form_example
+134,New patient consultation for oral sensitivity. Assessment included diagnostic assessment.,consultation_form,oral sensitivity,diagnostic assessment,acetaminophen,18,synthetic_dental_form_example
+42,Patient reports swelling and pain. Tooth 47 shows fractured tooth; dentist advised tooth extraction.,extraction_form,fractured tooth,tooth extraction,ibuprofen,47,synthetic_dental_form_example
+143,New patient consultation for facial swelling. Assessment included treatment planning.,consultation_form,facial swelling,treatment planning,naproxen,35,synthetic_dental_form_example
+111,Patient reports gum bleeding. Exam shows bleeding gums; dentist advised periodontal cleaning.,cleaning_form,bleeding gums,periodontal cleaning,fluoride,,synthetic_dental_form_example
+35,Oral surgery appointment: tooth extraction planned for tooth 25 because of fractured tooth.,extraction_form,fractured tooth,tooth extraction,ibuprofen,25,synthetic_dental_form_example
+83,Radiograph shows pulp infection around tooth 42. Patient scheduled for pulp removal.,root_canal_form,pulp infection,pulp removal,lidocaine,42,synthetic_dental_form_example
+3,Tooth 16 shows chipped tooth. Dentist completed composite filling and advised monitoring sensitivity.,filling_form,chipped tooth,composite filling,lidocaine,16,synthetic_dental_form_example
+19,Patient reports sensitivity while eating. Exam indicates chipped tooth on tooth 22; planned treatment is tooth restoration.,filling_form,chipped tooth,tooth restoration,fluoride,22,synthetic_dental_form_example
+130,Emergency visit for facial swelling. Dentist completed consultation and discussed next steps.,consultation_form,facial swelling,consultation,lidocaine,14,synthetic_dental_form_example
+120,Patient presents with mild periodontitis. Recommended treatment is deep cleaning and mouth rinse.,cleaning_form,mild periodontitis,deep cleaning,mouth rinse,,synthetic_dental_form_example
+27,Small dental caries detected on tooth 31. tooth restoration was recommended with lidocaine for comfort.,filling_form,dental caries,tooth restoration,lidocaine,31,synthetic_dental_form_example
+1,Tooth 28 shows cavity. Dentist completed composite filling and advised monitoring sensitivity.,filling_form,cavity,composite filling,acetaminophen,28,synthetic_dental_form_example
+45,Tooth 17 is not restorable due to severe decay; tooth extraction is required.,extraction_form,severe decay,tooth extraction,acetaminophen,17,synthetic_dental_form_example
+5,Restorative visit for tooth 27. Diagnosis is dental caries; treatment provided was temporary filling.,filling_form,dental caries,temporary filling,fluoride,27,synthetic_dental_form_example
+105,Periodontal assessment found bleeding gums. Plan includes scaling and polishing and home care instructions.,cleaning_form,bleeding gums,scaling and polishing,fluoride,,synthetic_dental_form_example
+12,Tooth 16 shows cavity. Dentist completed amalgam filling and advised monitoring sensitivity.,filling_form,cavity,amalgam filling,acetaminophen,16,synthetic_dental_form_example
+137,Clinical consultation: main complaint is unknown dental pain; oral examination was completed.,consultation_form,unknown dental pain,oral examination,ibuprofen,34,synthetic_dental_form_example
+72,Patient has nerve inflammation on tooth 11 and requires root canal retreatment. metronidazole was prescribed.,root_canal_form,nerve inflammation,root canal retreatment,metronidazole,11,synthetic_dental_form_example
+149,Patient is unsure which tooth hurts and reports toothache. Plan is x ray review.,consultation_form,toothache,x ray review,none,28,synthetic_dental_form_example
+43,Oral surgery appointment: simple extraction planned for tooth 44 because of non-restorable tooth.,extraction_form,non-restorable tooth,simple extraction,amoxicillin,44,synthetic_dental_form_example
+99,Patient reports gum bleeding. Exam shows tartar accumulation; dentist advised dental cleaning.,cleaning_form,tartar accumulation,dental cleaning,fluoride,,synthetic_dental_form_example
+51,Patient reports swelling and pain. Tooth 11 shows severe decay; dentist advised surgical extraction.,extraction_form,severe decay,surgical extraction,lidocaine,11,synthetic_dental_form_example
+41,Extraction consent needed for tooth 21. Diagnosis: advanced infection. Medication: clindamycin.,extraction_form,advanced infection,surgical extraction,clindamycin,21,synthetic_dental_form_example
+126,New patient consultation for unknown dental pain. Assessment included consultation.,consultation_form,unknown dental pain,consultation,ibuprofen,44,synthetic_dental_form_example
+66,Patient has infected root canal on tooth 34 and requires root canal treatment. clindamycin was prescribed.,root_canal_form,infected root canal,root canal treatment,clindamycin,34,synthetic_dental_form_example
+119,Patient presents with bleeding gums. Recommended treatment is deep cleaning and desensitizing gel.,cleaning_form,bleeding gums,deep cleaning,desensitizing gel,,synthetic_dental_form_example
+129,Patient reports facial swelling. Dentist performed diagnostic assessment and recommended none.,consultation_form,facial swelling,diagnostic assessment,none,31,synthetic_dental_form_example
+64,Severe toothache reported. Tooth 38 diagnosed with dental abscess; dentist recommended root canal treatment.,root_canal_form,dental abscess,root canal treatment,ibuprofen,38,synthetic_dental_form_example
+4,Small dental caries detected on tooth 12. temporary filling was recommended with none for comfort.,filling_form,dental caries,temporary filling,none,12,synthetic_dental_form_example
+40,Oral surgery appointment: simple extraction planned for tooth 28 because of impacted wisdom tooth.,extraction_form,impacted wisdom tooth,simple extraction,clindamycin,28,synthetic_dental_form_example
+92,Hygiene appointment completed. Findings include gingivitis; procedure performed was deep cleaning.,cleaning_form,gingivitis,deep cleaning,mouth rinse,,synthetic_dental_form_example
+80,Endodontic consultation for tooth 27. Findings suggest nerve inflammation; plan is root canal treatment.,root_canal_form,nerve inflammation,root canal treatment,metronidazole,27,synthetic_dental_form_example
+127,Patient is unsure which tooth hurts and reports facial swelling. Plan is oral examination.,consultation_form,facial swelling,oral examination,ibuprofen,31,synthetic_dental_form_example
+101,Periodontal assessment found plaque buildup. Plan includes scaling and polishing and home care instructions.,cleaning_form,plaque buildup,scaling and polishing,mouth rinse,,synthetic_dental_form_example
+56,Tooth 16 is not restorable due to fractured tooth; surgical extraction is required.,extraction_form,fractured tooth,surgical extraction,amoxicillin,16,synthetic_dental_form_example
+75,Severe toothache reported. Tooth 13 diagnosed with pulp infection; dentist recommended pulp removal.,root_canal_form,pulp infection,pulp removal,lidocaine,13,synthetic_dental_form_example
+144,Patient is unsure which tooth hurts and reports jaw pain. Plan is diagnostic assessment.,consultation_form,jaw pain,diagnostic assessment,none,28,synthetic_dental_form_example
+58,Extraction consent needed for tooth 13. Diagnosis: severe decay. Medication: ibuprofen.,extraction_form,severe decay,post extraction care,ibuprofen,13,synthetic_dental_form_example
+49,Tooth 28 is not restorable due to fractured tooth; simple extraction is required.,extraction_form,fractured tooth,simple extraction,amoxicillin,28,synthetic_dental_form_example
+67,Radiograph shows deep cavity around tooth 17. Patient scheduled for pulp removal.,root_canal_form,deep cavity,pulp removal,amoxicillin,17,synthetic_dental_form_example
+29,Tooth 38 shows sensitivity from cavity. Dentist completed amalgam filling and advised monitoring sensitivity.,filling_form,sensitivity from cavity,amalgam filling,ibuprofen,38,synthetic_dental_form_example
+54,Oral surgery appointment: post extraction care planned for tooth 14 because of severe decay.,extraction_form,severe decay,post extraction care,clindamycin,14,synthetic_dental_form_example
+16,Patient reports sensitivity while eating. Exam indicates chipped tooth on tooth 27; planned treatment is tooth restoration.,filling_form,chipped tooth,tooth restoration,acetaminophen,27,synthetic_dental_form_example
+32,Patient has severe decay involving tooth 16. Recommended treatment is surgical extraction with clindamycin.,extraction_form,severe decay,surgical extraction,clindamycin,16,synthetic_dental_form_example
+11,Patient has tooth decay on tooth 25 and requires temporary filling. acetaminophen was used or recommended.,filling_form,tooth decay,temporary filling,acetaminophen,25,synthetic_dental_form_example
+110,Preventive care visit: deep cleaning completed due to mild periodontitis.,cleaning_form,mild periodontitis,deep cleaning,fluoride,,synthetic_dental_form_example
+73,Severe toothache reported. Tooth 13 diagnosed with pulp infection; dentist recommended endodontic therapy.,root_canal_form,pulp infection,endodontic therapy,clindamycin,13,synthetic_dental_form_example
+145,Patient reports unknown dental pain. Dentist performed treatment planning and recommended none.,consultation_form,unknown dental pain,treatment planning,none,36,synthetic_dental_form_example
+20,Small dental caries detected on tooth 31. amalgam filling was recommended with none for comfort.,filling_form,dental caries,amalgam filling,none,31,synthetic_dental_form_example
+86,Radiograph shows nerve inflammation around tooth 44. Patient scheduled for pulp removal.,root_canal_form,nerve inflammation,pulp removal,lidocaine,44,synthetic_dental_form_example
+123,Patient is unsure which tooth hurts and reports oral sensitivity. Plan is x ray review.,consultation_form,oral sensitivity,x ray review,none,12,synthetic_dental_form_example
+10,Small sensitivity from cavity detected on tooth 16. composite filling was recommended with fluoride for comfort.,filling_form,sensitivity from cavity,composite filling,fluoride,16,synthetic_dental_form_example
+96,Preventive care visit: deep cleaning completed due to tartar accumulation.,cleaning_form,tartar accumulation,deep cleaning,mouth rinse,,synthetic_dental_form_example
+52,Extraction consent needed for tooth 44. Diagnosis: impacted wisdom tooth. Medication: acetaminophen.,extraction_form,impacted wisdom tooth,tooth extraction,acetaminophen,44,synthetic_dental_form_example
+9,Restorative visit for tooth 13. Diagnosis is tooth decay; treatment provided was temporary filling.,filling_form,tooth decay,temporary filling,acetaminophen,13,synthetic_dental_form_example
+15,Tooth 28 shows cavity. Dentist completed temporary filling and advised monitoring sensitivity.,filling_form,cavity,temporary filling,ibuprofen,28,synthetic_dental_form_example
+100,Patient presents with gingivitis. Recommended treatment is scaling and polishing and fluoride.,cleaning_form,gingivitis,scaling and polishing,fluoride,,synthetic_dental_form_example
+33,Tooth 21 is not restorable due to advanced infection; simple extraction is required.,extraction_form,advanced infection,simple extraction,clindamycin,21,synthetic_dental_form_example
+103,Preventive care visit: deep cleaning completed due to gingivitis.,cleaning_form,gingivitis,deep cleaning,mouth rinse,,synthetic_dental_form_example
+24,Small cavity detected on tooth 46. tooth restoration was recommended with fluoride for comfort.,filling_form,cavity,tooth restoration,fluoride,46,synthetic_dental_form_example
+44,Patient has advanced infection involving tooth 14. Recommended treatment is tooth extraction with lidocaine.,extraction_form,advanced infection,tooth extraction,lidocaine,14,synthetic_dental_form_example
+150,Emergency visit for facial swelling. Dentist completed x ray review and discussed next steps.,consultation_form,facial swelling,x ray review,ibuprofen,16,synthetic_dental_form_example
+125,Clinical consultation: main complaint is unknown dental pain; treatment planning was completed.,consultation_form,unknown dental pain,treatment planning,ibuprofen,42,synthetic_dental_form_example
+61,Patient has deep cavity on tooth 35 and requires pulp removal. metronidazole was prescribed.,root_canal_form,deep cavity,pulp removal,metronidazole,35,synthetic_dental_form_example
+118,Hygiene appointment completed. Findings include bleeding gums; procedure performed was deep cleaning.,cleaning_form,bleeding gums,deep cleaning,chlorhexidine,,synthetic_dental_form_example
+74,Endodontic consultation for tooth 44. Findings suggest infected root canal; plan is root canal retreatment.,root_canal_form,infected root canal,root canal retreatment,ibuprofen,44,synthetic_dental_form_example
+141,Clinical consultation: main complaint is facial swelling; oral examination was completed.,consultation_form,facial swelling,oral examination,none,24,synthetic_dental_form_example
+14,Patient reports sensitivity while eating. Exam indicates dental caries on tooth 26; planned treatment is restorative filling.,filling_form,dental caries,restorative filling,acetaminophen,26,synthetic_dental_form_example
+148,Patient reports oral sensitivity. Dentist performed treatment planning and recommended ibuprofen.,consultation_form,oral sensitivity,treatment planning,ibuprofen,25,synthetic_dental_form_example
+97,Hygiene appointment completed. Findings include gingivitis; procedure performed was oral hygiene instruction.,cleaning_form,gingivitis,oral hygiene instruction,mouth rinse,,synthetic_dental_form_example
+82,Severe toothache reported. Tooth 36 diagnosed with pulp infection; dentist recommended endodontic therapy.,root_canal_form,pulp infection,endodontic therapy,metronidazole,36,synthetic_dental_form_example
+106,Hygiene appointment completed. Findings include bleeding gums; procedure performed was dental cleaning.,cleaning_form,bleeding gums,dental cleaning,desensitizing gel,,synthetic_dental_form_example
+90,Severe toothache reported. Tooth 43 diagnosed with dental abscess; dentist recommended root canal retreatment.,root_canal_form,dental abscess,root canal retreatment,lidocaine,43,synthetic_dental_form_example
+114,Periodontal assessment found tartar accumulation. Plan includes periodontal cleaning and home care instructions.,cleaning_form,tartar accumulation,periodontal cleaning,none,,synthetic_dental_form_example
+71,Endodontic consultation for tooth 31. Findings suggest pulp infection; plan is pulp removal.,root_canal_form,pulp infection,pulp removal,ibuprofen,31,synthetic_dental_form_example
+7,Patient reports sensitivity while eating. Exam indicates tooth decay on tooth 26; planned treatment is restorative filling.,filling_form,tooth decay,restorative filling,ibuprofen,26,synthetic_dental_form_example
+6,Restorative visit for tooth 23. Diagnosis is sensitivity from cavity; treatment provided was restorative filling.,filling_form,sensitivity from cavity,restorative filling,lidocaine,23,synthetic_dental_form_example
+124,New patient consultation for oral sensitivity. Assessment included x ray review.,consultation_form,oral sensitivity,x ray review,acetaminophen,46,synthetic_dental_form_example
+17,Restorative visit for tooth 35. Diagnosis is cavity; treatment provided was amalgam filling.,filling_form,cavity,amalgam filling,lidocaine,35,synthetic_dental_form_example
+69,Severe toothache reported. Tooth 48 diagnosed with deep cavity; dentist recommended pulp removal.,root_canal_form,deep cavity,pulp removal,clindamycin,48,synthetic_dental_form_example
+139,Patient reports facial swelling. Dentist performed diagnostic assessment and recommended ibuprofen.,consultation_form,facial swelling,diagnostic assessment,ibuprofen,36,synthetic_dental_form_example
+2,Small dental caries detected on tooth 16. composite filling was recommended with none for comfort.,filling_form,dental caries,composite filling,none,16,synthetic_dental_form_example
+39,Patient has severe decay involving tooth 15. Recommended treatment is simple extraction with ibuprofen.,extraction_form,severe decay,simple extraction,ibuprofen,15,synthetic_dental_form_example
+23,Small cavity detected on tooth 44. amalgam filling was recommended with ibuprofen for comfort.,filling_form,cavity,amalgam filling,ibuprofen,44,synthetic_dental_form_example
+47,Tooth 46 is not restorable due to advanced infection; surgical extraction is required.,extraction_form,advanced infection,surgical extraction,acetaminophen,46,synthetic_dental_form_example
+30,Restorative visit for tooth 35. Diagnosis is sensitivity from cavity; treatment provided was temporary filling.,filling_form,sensitivity from cavity,temporary filling,lidocaine,35,synthetic_dental_form_example
+38,Patient has fractured tooth involving tooth 27. Recommended treatment is post extraction care with ibuprofen.,extraction_form,fractured tooth,post extraction care,ibuprofen,27,synthetic_dental_form_example
+25,Small tooth decay detected on tooth 18. temporary filling was recommended with lidocaine for comfort.,filling_form,tooth decay,temporary filling,lidocaine,18,synthetic_dental_form_example
+107,Preventive care visit: deep cleaning completed due to plaque buildup.,cleaning_form,plaque buildup,deep cleaning,fluoride,,synthetic_dental_form_example
+13,Patient reports sensitivity while eating. Exam indicates cavity on tooth 46; planned treatment is tooth restoration.,filling_form,cavity,tooth restoration,acetaminophen,46,synthetic_dental_form_example
+37,Patient has non-restorable tooth involving tooth 36. Recommended treatment is surgical extraction with amoxicillin.,extraction_form,non-restorable tooth,surgical extraction,amoxicillin,36,synthetic_dental_form_example
+77,Endodontic consultation for tooth 28. Findings suggest nerve inflammation; plan is root canal retreatment.,root_canal_form,nerve inflammation,root canal retreatment,ibuprofen,28,synthetic_dental_form_example
+68,Severe toothache reported. Tooth 26 diagnosed with deep cavity; dentist recommended pulp removal.,root_canal_form,deep cavity,pulp removal,lidocaine,26,synthetic_dental_form_example
+98,Periodontal assessment found plaque buildup. Plan includes periodontal cleaning and home care instructions.,cleaning_form,plaque buildup,periodontal cleaning,desensitizing gel,,synthetic_dental_form_example
+76,Radiograph shows deep cavity around tooth 37. Patient scheduled for endodontic therapy.,root_canal_form,deep cavity,endodontic therapy,amoxicillin,37,synthetic_dental_form_example
+93,Preventive care visit: oral hygiene instruction completed due to mild periodontitis.,cleaning_form,mild periodontitis,oral hygiene instruction,none,,synthetic_dental_form_example
+36,Patient has advanced infection involving tooth 45. Recommended treatment is wisdom tooth removal with lidocaine.,extraction_form,advanced infection,wisdom tooth removal,lidocaine,45,synthetic_dental_form_example
+62,Patient has pulp infection on tooth 17 and requires canal cleaning. clindamycin was prescribed.,root_canal_form,pulp infection,canal cleaning,clindamycin,17,synthetic_dental_form_example
+146,New patient consultation for facial swelling. Assessment included diagnostic assessment.,consultation_form,facial swelling,diagnostic assessment,acetaminophen,48,synthetic_dental_form_example
+28,Small dental caries detected on tooth 34. temporary filling was recommended with lidocaine for comfort.,filling_form,dental caries,temporary filling,lidocaine,34,synthetic_dental_form_example
+132,New patient consultation for toothache. Assessment included consultation.,consultation_form,toothache,consultation,lidocaine,22,synthetic_dental_form_example
+48,Patient has severe decay involving tooth 17. Recommended treatment is tooth extraction with clindamycin.,extraction_form,severe decay,tooth extraction,clindamycin,17,synthetic_dental_form_example
+133,Patient is unsure which tooth hurts and reports toothache. Plan is x ray review.,consultation_form,toothache,x ray review,ibuprofen,26,synthetic_dental_form_example
+81,Endodontic consultation for tooth 27. Findings suggest nerve inflammation; plan is pulp removal.,root_canal_form,nerve inflammation,pulp removal,lidocaine,27,synthetic_dental_form_example
+50,Patient reports swelling and pain. Tooth 26 shows advanced infection; dentist advised tooth extraction.,extraction_form,advanced infection,tooth extraction,lidocaine,26,synthetic_dental_form_example
+31,Tooth 34 is not restorable due to severe decay; simple extraction is required.,extraction_form,severe decay,simple extraction,acetaminophen,34,synthetic_dental_form_example
+60,Patient reports swelling and pain. Tooth 31 shows non-restorable tooth; dentist advised wisdom tooth removal.,extraction_form,non-restorable tooth,wisdom tooth removal,ibuprofen,31,synthetic_dental_form_example
+65,Radiograph shows deep cavity around tooth 34. Patient scheduled for canal cleaning.,root_canal_form,deep cavity,canal cleaning,clindamycin,34,synthetic_dental_form_example
+147,Clinical consultation: main complaint is oral sensitivity; diagnostic assessment was completed.,consultation_form,oral sensitivity,diagnostic assessment,naproxen,32,synthetic_dental_form_example
+70,Patient has pulp infection on tooth 32 and requires root canal treatment. metronidazole was prescribed.,root_canal_form,pulp infection,root canal treatment,metronidazole,32,synthetic_dental_form_example
+117,Periodontal assessment found bleeding gums. Plan includes deep cleaning and home care instructions.,cleaning_form,bleeding gums,deep cleaning,none,,synthetic_dental_form_example
+91,Hygiene appointment completed. Findings include bleeding gums; procedure performed was periodontal cleaning.,cleaning_form,bleeding gums,periodontal cleaning,desensitizing gel,,synthetic_dental_form_example
+85,Radiograph shows infected root canal around tooth 17. Patient scheduled for pulp removal.,root_canal_form,infected root canal,pulp removal,amoxicillin,17,synthetic_dental_form_example
+109,Preventive care visit: oral hygiene instruction completed due to bleeding gums.,cleaning_form,bleeding gums,oral hygiene instruction,desensitizing gel,,synthetic_dental_form_example
+89,Patient has nerve inflammation on tooth 35 and requires root canal treatment. lidocaine was prescribed.,root_canal_form,nerve inflammation,root canal treatment,lidocaine,35,synthetic_dental_form_example
+136,Patient reports unknown dental pain. Dentist performed x ray review and recommended none.,consultation_form,unknown dental pain,x ray review,none,25,synthetic_dental_form_example
+142,Patient is unsure which tooth hurts and reports oral sensitivity. Plan is treatment planning.,consultation_form,oral sensitivity,treatment planning,lidocaine,47,synthetic_dental_form_example
+122,New patient consultation for unknown dental pain. Assessment included treatment planning.,consultation_form,unknown dental pain,treatment planning,acetaminophen,48,synthetic_dental_form_example
+95,Periodontal assessment found gingivitis. Plan includes deep cleaning and home care instructions.,cleaning_form,gingivitis,deep cleaning,desensitizing gel,,synthetic_dental_form_example
+79,Patient has nerve inflammation on tooth 23 and requires endodontic therapy. lidocaine was prescribed.,root_canal_form,nerve inflammation,endodontic therapy,lidocaine,23,synthetic_dental_form_example
+63,Endodontic consultation for tooth 31. Findings suggest infected root canal; plan is endodontic therapy.,root_canal_form,infected root canal,endodontic therapy,clindamycin,31,synthetic_dental_form_example
+104,Patient presents with gingivitis. Recommended treatment is scaling and polishing and chlorhexidine.,cleaning_form,gingivitis,scaling and polishing,chlorhexidine,,synthetic_dental_form_example
+57,Patient reports swelling and pain. Tooth 28 shows severe decay; dentist advised post extraction care.,extraction_form,severe decay,post extraction care,amoxicillin,28,synthetic_dental_form_example
