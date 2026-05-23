@@ -1,3 +1,13 @@
+# macOS metadata
+.DS_Store
+
+# Trained model folders (too large for GitHub — download from Colab)
+dental_ner_model/
+iva_form_classifier/
+
+# Runtime data
+filing_system/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
