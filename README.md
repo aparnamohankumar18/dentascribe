@@ -16,10 +16,18 @@ Audio → Whisper ASR (Andy) → NER (Ali) → Form Classifier (Iva) → Filing 
 | 5 — Integration & Backend | Koroush | — |
 | 6 — Demo & Presentation | Aparna | Streamlit |
 
+## How to Run
+1. Download trained models from Google Colab and place in the project folder:
+   - `dental_ner_model/` — Ali (Role 2)
+   - `iva_form_classifier/` — Iva (Role 4)
+   - `whisper_dental_model/` — Andy (Role 1)
+2. Install dependencies: `pip install -r requirements.txt`
+3. Launch the demo: `streamlit run app.py`
+
 ## Tech Stack
 - Python, PyTorch, HuggingFace Transformers
 - Streamlit (demo)
-- Google Colab (T4 GPU)
+- Google Colab Pro+ (H100 GPU)
 
 ## Course
 Mathematics / Deep Learning — Group Project

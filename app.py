@@ -1,6 +1,6 @@
 # ============================================================
 # DentaScribe — AI Dental Voice Assistant
-# Role 6 — Demo & Presentation (Aparna) | covered by Ali
+# Role 6 — Demo & Presentation (Aparna)
 # Streamlit front-end that runs the full pipeline end-to-end
 # ============================================================
 
