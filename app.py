@@ -107,18 +107,60 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("**Demo Mode**")
     demo_mode = st.checkbox("Use sample transcript (no audio needed)", value=False)
-    DEFAULT_TRANSCRIPT = (
-        "The patient presents with moderate gingivitis and early periodontitis. "
-        "We prescribed amoxicillin 500 mg three times daily for one week and "
-        "recommended ibuprofen for pain management. A thorough cleaning was performed."
-    )
+
+    DEMO_SCENARIOS = {
+        "🦠 Gingivitis & Cleaning": (
+            "The patient presents with moderate gingivitis and early periodontitis. "
+            "We prescribed amoxicillin 500 mg three times daily for one week and "
+            "recommended ibuprofen for pain management. A thorough cleaning was performed."
+        ),
+        "🦷 Root Canal": (
+            "Patient has severe pulpitis in the lower left molar with signs of apical abscess. "
+            "Root canal therapy was initiated today. We administered lidocaine for local anaesthesia "
+            "and prescribed metronidazole 400 mg twice daily for five days along with paracetamol "
+            "for post-procedure pain relief."
+        ),
+        "🚨 Emergency Visit": (
+            "Emergency visit for acute pericoronitis around the lower wisdom tooth. "
+            "Significant swelling and trismus observed. Patient was given a chlorhexidine "
+            "mouthwash prescription and amoxicillin-clavulanate 875 mg twice daily. "
+            "Extraction of the third molar is recommended next week."
+        ),
+        "👑 Crown & Bridge": (
+            "The patient requires a porcelain crown on the upper right premolar following "
+            "a cracked tooth diagnosis. Impressions were taken today. Temporary crown placed "
+            "and patient prescribed ibuprofen 400 mg as needed for sensitivity. "
+            "Final crown fitting is scheduled in two weeks."
+        ),
+        "😁 Orthodontic Consultation": (
+            "Initial orthodontic consultation for Class II malocclusion with moderate crowding. "
+            "Patient presents with dental fluorosis on the upper incisors. "
+            "Treatment plan includes fixed braces over 18 months. "
+            "Fluoride gel application recommended before bonding appointment."
+        ),
+        "🌿 Periodontal Treatment": (
+            "Deep periodontal scaling performed on all four quadrants. "
+            "Patient has chronic periodontitis with 5 to 7 mm pocket depths. "
+            "Doxycycline 100 mg once daily prescribed for two weeks. "
+            "Chlorhexidine gel applied subgingivally. Follow-up in six weeks."
+        ),
+    }
+
     if "custom_transcript" not in st.session_state:
-        st.session_state["custom_transcript"] = DEFAULT_TRANSCRIPT
+        st.session_state["custom_transcript"] = list(DEMO_SCENARIOS.values())[0]
+
     if demo_mode:
+        preset = st.selectbox(
+            "📋 Load a demo scenario",
+            options=["— type your own —"] + list(DEMO_SCENARIOS.keys()),
+        )
+        if preset != "— type your own —":
+            st.session_state["custom_transcript"] = DEMO_SCENARIOS[preset]
+
         SAMPLE_TRANSCRIPT = st.text_area(
-            "Custom transcript (edit to test different inputs)",
+            "Transcript (edit freely)",
             key="custom_transcript",
-            height=150,
+            height=160,
         )
 
 # ── Main content ─────────────────────────────────────────────
