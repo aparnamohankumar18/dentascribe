@@ -1,6 +1,6 @@
 # ============================================================
 # DentaScribe — Integration Pipeline
-# Role 5 — Integration & Backend (Koroush) | covered by Ali
+# Role 5 — Integration & Backend (Koroush)
 # Connects all models end-to-end: Whisper → NER → Form → Filing
 # ============================================================
 
@@ -10,7 +10,7 @@ from datetime import datetime
 
 
 # ── Role 1 — Andy: Load Whisper ASR ─────────────────────────
-def load_whisper(model_path="openai/whisper-base"):
+def load_whisper(model_path="openai/whisper-tiny"):
     """Load Whisper processor and model for speech recognition."""
     from transformers import WhisperProcessor, WhisperForConditionalGeneration
     processor = WhisperProcessor.from_pretrained(model_path)
