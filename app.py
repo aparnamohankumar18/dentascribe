@@ -112,10 +112,12 @@ with st.sidebar:
         "We prescribed amoxicillin 500 mg three times daily for one week and "
         "recommended ibuprofen for pain management. A thorough cleaning was performed."
     )
+    if "custom_transcript" not in st.session_state:
+        st.session_state["custom_transcript"] = DEFAULT_TRANSCRIPT
     if demo_mode:
         SAMPLE_TRANSCRIPT = st.text_area(
             "Custom transcript (edit to test different inputs)",
-            value=DEFAULT_TRANSCRIPT,
+            key="custom_transcript",
             height=150,
         )
 
