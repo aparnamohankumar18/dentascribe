@@ -109,40 +109,74 @@ with st.sidebar:
     demo_mode = st.checkbox("Use sample transcript (no audio needed)", value=False)
 
     DEMO_SCENARIOS = {
+        # ── cleaning_form ────────────────────────────────────────
         "🦠 Gingivitis & Cleaning": (
             "The patient presents with moderate gingivitis and early periodontitis. "
             "We prescribed amoxicillin 500 mg three times daily for one week and "
             "recommended ibuprofen for pain management. A thorough cleaning was performed."
         ),
+        # ── root_canal_form ──────────────────────────────────────
         "🦷 Root Canal": (
             "Patient has severe pulpitis in the lower left molar with signs of apical abscess. "
             "Root canal therapy was initiated today. We administered lidocaine for local anaesthesia "
             "and prescribed metronidazole 400 mg twice daily for five days along with paracetamol "
             "for post-procedure pain relief."
         ),
+        # ── emergency_form ───────────────────────────────────────
         "🚨 Emergency Visit": (
             "Emergency visit for acute pericoronitis around the lower wisdom tooth. "
             "Significant swelling and trismus observed. Patient was given a chlorhexidine "
             "mouthwash prescription and amoxicillin-clavulanate 875 mg twice daily. "
             "Extraction of the third molar is recommended next week."
         ),
+        # ── extraction_form ──────────────────────────────────────
+        "🔧 Tooth Extraction": (
+            "Extraction of the upper left second molar performed today due to severe dental caries "
+            "and irreversible pulpitis. Local anaesthesia with articaine was administered. "
+            "Patient prescribed amoxicillin 500 mg three times daily and ibuprofen 400 mg "
+            "for swelling. Post-extraction instructions provided."
+        ),
+        # ── filling_form ─────────────────────────────────────────
+        "🪥 Cavity Filling": (
+            "Composite resin filling placed on the lower right first molar. "
+            "Patient presented with moderate dental caries extending to the dentine. "
+            "No signs of pulpitis detected. Fluoride varnish applied after the procedure. "
+            "Patient advised to avoid hard foods for 24 hours."
+        ),
+        # ── crown_bridge_form ────────────────────────────────────
         "👑 Crown & Bridge": (
             "The patient requires a porcelain crown on the upper right premolar following "
             "a cracked tooth diagnosis. Impressions were taken today. Temporary crown placed "
             "and patient prescribed ibuprofen 400 mg as needed for sensitivity. "
             "Final crown fitting is scheduled in two weeks."
         ),
+        # ── periodontal_form ─────────────────────────────────────
+        "🌿 Periodontal Treatment": (
+            "Deep periodontal scaling performed on all four quadrants. "
+            "Patient has chronic periodontitis with 5 to 7 mm pocket depths. "
+            "Doxycycline 100 mg once daily prescribed for two weeks. "
+            "Chlorhexidine gel applied subgingivally. Follow-up in six weeks."
+        ),
+        # ── orthodontic_form ─────────────────────────────────────
         "😁 Orthodontic Consultation": (
             "Initial orthodontic consultation for Class II malocclusion with moderate crowding. "
             "Patient presents with dental fluorosis on the upper incisors. "
             "Treatment plan includes fixed braces over 18 months. "
             "Fluoride gel application recommended before bonding appointment."
         ),
-        "🌿 Periodontal Treatment": (
-            "Deep periodontal scaling performed on all four quadrants. "
-            "Patient has chronic periodontitis with 5 to 7 mm pocket depths. "
-            "Doxycycline 100 mg once daily prescribed for two weeks. "
-            "Chlorhexidine gel applied subgingivally. Follow-up in six weeks."
+        # ── whitening_form ───────────────────────────────────────
+        "✨ Teeth Whitening": (
+            "Patient requested professional teeth whitening for mild to moderate tooth discolouration. "
+            "In-office bleaching performed using hydrogen peroxide gel. "
+            "Mild dentinal hypersensitivity noted post-procedure. "
+            "Prescribed fluoride toothpaste and advised to avoid coffee and tea for 48 hours."
+        ),
+        # ── consultation_form ────────────────────────────────────
+        "📋 General Consultation": (
+            "New patient consultation. Patient reports intermittent toothache and bleeding gums. "
+            "Examination reveals mild gingivitis and early signs of bruxism. "
+            "Dental radiographs taken. Recommended night guard for bruxism and "
+            "chlorhexidine mouthwash twice daily. Full treatment plan to be discussed at next visit."
         ),
     }
 
