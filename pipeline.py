@@ -92,7 +92,7 @@ def extract_entities(transcript, ner_pipeline):
     for ent in entities:
         word  = ent.get("word", "")
         label = ent.get("entity_group", ent.get("entity", ""))
-        score = ent.get("score", 0)
+        score = float(ent.get("score", 0))
 
         if word.startswith("##") and merged:
             # Subword continuation — append to previous entity
@@ -101,8 +101,10 @@ def extract_entities(transcript, ner_pipeline):
         else:
             merged.append({"word": word.strip(), "label": label, "score": round(score, 4)})
 
-    # Filter out very short leftovers
-    cleaned = [e for e in merged if len(e["word"].strip()) > 2]
+    # Filter out very short leftovers and generic non-clinical words
+    STOP_WORDS = {"pain", "mg", "daily", "week", "oral", "one", "two", "three"}
+    cleaned = [e for e in merged if len(e["word"].strip()) > 2
+               and e["word"].lower() not in STOP_WORDS]
 
     # Complete truncated words by matching against the original transcript
     transcript_words = transcript.lower().split()
