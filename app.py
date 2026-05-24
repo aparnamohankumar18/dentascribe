@@ -107,11 +107,17 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("**Demo Mode**")
     demo_mode = st.checkbox("Use sample transcript (no audio needed)", value=False)
-    SAMPLE_TRANSCRIPT = (
+    DEFAULT_TRANSCRIPT = (
         "The patient presents with moderate gingivitis and early periodontitis. "
         "We prescribed amoxicillin 500 mg three times daily for one week and "
         "recommended ibuprofen for pain management. A thorough cleaning was performed."
     )
+    if demo_mode:
+        SAMPLE_TRANSCRIPT = st.text_area(
+            "Custom transcript (edit to test different inputs)",
+            value=DEFAULT_TRANSCRIPT,
+            height=150,
+        )
 
 # ── Main content ─────────────────────────────────────────────
 col_left, col_right = st.columns([1, 1], gap="large")
@@ -295,7 +301,7 @@ else:
             ("🎙️", "Step 1 — Speech Recognition", "Whisper (fine-tuned) converts dental audio to text  *(Andy)*"),
             ("🏷️", "Step 2 — Named Entity Recognition", "DistilBERT NER extracts diseases & medications  *(Ali)*"),
             ("📋", "Step 3 — Form Classification", "DistilBERT classifier picks the right form type  *(Iva)*"),
-            ("🗄️", "Step 4 — Filing System", "JSON form saved by patient ID + date  *(Koroush / Ali)*"),
+            ("🗄️", "Step 4 — Filing System", "JSON form saved by patient ID + date  *(Koroush)*"),
         ]
         for icon, title, desc in steps:
             st.markdown(
