@@ -105,8 +105,14 @@ with st.sidebar:
     st.markdown("**Patient ID**")
     patient_id = st.text_input("Enter patient ID", value="P001", max_chars=20)
     st.markdown("---")
-    st.markdown("**Demo Mode**")
-    demo_mode = st.checkbox("Use sample transcript (no audio needed)", value=False)
+    st.markdown("**Input Mode**")
+    input_mode = st.radio(
+        "Choose how to provide input",
+        ["🎙️ Record Live", "📁 Upload File", "📋 Demo Transcript"],
+        index=1,
+        label_visibility="collapsed",
+    )
+    demo_mode = input_mode == "📋 Demo Transcript"
 
     DEMO_SCENARIOS = {
         # ── cleaning_form ────────────────────────────────────────
@@ -201,22 +207,42 @@ with st.sidebar:
 col_left, col_right = st.columns([1, 1], gap="large")
 
 with col_left:
-    st.markdown("### Step 1 — Upload Audio")
-    audio_file = st.file_uploader(
-        "Upload a WAV, MP3 or M4A recording of the dental consultation",
-        type=["wav", "mp3", "m4a"],
-        disabled=demo_mode,
-    )
-    if demo_mode:
+    audio_file = None
+    recorded_audio = None
+
+    if input_mode == "🎙️ Record Live":
+        st.markdown("### Step 1 — Record Live Audio")
+        recorded_audio = st.audio_input("🎙️ Press to record the consultation")
+        if recorded_audio is not None:
+            st.success("✅ Recording captured — press play to review, then run the pipeline.")
+    elif input_mode == "📁 Upload File":
+        st.markdown("### Step 1 — Upload Audio")
+        audio_file = st.file_uploader(
+            "Upload a WAV, MP3 or M4A recording of the dental consultation",
+            type=["wav", "mp3", "m4a"],
+        )
+        if audio_file is not None:
+            st.markdown("**🔊 Preview — play to listen along while the model transcribes:**")
+            st.audio(audio_file)
+    else:  # Demo Transcript
+        st.markdown("### Step 1 — Demo Transcript")
         st.info("📌 Demo mode: using built-in sample transcript — no audio needed.")
 
     run_btn = st.button("▶ Run DentaScribe Pipeline", type="primary", use_container_width=True)
 
 # ── Pipeline execution ───────────────────────────────────────
 if run_btn:
-    if not demo_mode and audio_file is None:
-        st.error("Please upload an audio file or enable Demo Mode.")
+    # Pick the active audio source based on input mode
+    audio_source = recorded_audio if input_mode == "🎙️ Record Live" else audio_file
+    if input_mode != "📋 Demo Transcript" and audio_source is None:
+        if input_mode == "🎙️ Record Live":
+            st.error("Please record audio first, or switch to Upload File / Demo Transcript.")
+        else:
+            st.error("Please upload an audio file or switch input mode.")
         st.stop()
+
+    # Read bytes once so we can both transcribe and replay them in Results
+    audio_bytes = audio_source.getvalue() if audio_source is not None else None
 
     # Load models
     try:
@@ -232,13 +258,16 @@ if run_btn:
 
     # ── Step 1: Transcription ────────────────────────────────
     with st.spinner("🎙️ Transcribing audio…"):
-        if demo_mode:
+        if input_mode == "📋 Demo Transcript":
             transcript = SAMPLE_TRANSCRIPT
             st.success("✅ Demo transcript loaded.")
         else:
-            suffix = "." + audio_file.name.split(".")[-1]
+            if input_mode == "🎙️ Record Live":
+                suffix = ".wav"
+            else:
+                suffix = "." + audio_source.name.split(".")[-1]
             with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
-                tmp.write(audio_file.read())
+                tmp.write(audio_bytes)
                 tmp_path = tmp.name
             try:
                 transcript = transcribe_audio(tmp_path, whisper_processor, whisper_model)
@@ -278,6 +307,10 @@ if run_btn:
 
     # Tab 1 — Transcript & NER
     with tab1:
+        if audio_bytes is not None:
+            st.markdown("#### 🔊 Original Audio")
+            st.audio(audio_bytes)
+            st.caption("Play back the original recording while reading the transcript to spot ASR errors.")
         st.markdown("#### Transcript")
         st.info(transcript)
 

@@ -10,7 +10,7 @@ from datetime import datetime
 
 
 # ── Role 1 — Andy: Load Whisper ASR ─────────────────────────
-def load_whisper(model_path="openai/whisper-tiny"):
+def load_whisper(model_path="openai/whisper-small"):
     """Load Whisper processor and model for speech recognition."""
     from transformers import WhisperProcessor, WhisperForConditionalGeneration
     processor = WhisperProcessor.from_pretrained(model_path)
@@ -21,13 +21,13 @@ def load_whisper(model_path="openai/whisper-tiny"):
 
 
 # ── Role 2 — Ali: Load NER Model ────────────────────────────
-def load_ner(model_path="dental_ner_model"):
+def load_ner(model_path="neuroarcane/dental-ner-model"):
     """Load DistilBERT NER pipeline for dental entity extraction."""
     from transformers import pipeline
     ner_pipe = pipeline(
         "token-classification",
         model=model_path,
-        aggregation_strategy="simple",
+        aggregation_strategy="first",
     )
     print(f"[Role 2 — Ali] NER model loaded from: {model_path}")
     return ner_pipe
@@ -35,8 +35,8 @@ def load_ner(model_path="dental_ner_model"):
 
 # ── Role 4 — Iva: Load Form Classifier ──────────────────────
 def load_form_classifier(
-    model_path="iva_form_classifier",
-    tokenizer_name="iva_form_classifier",
+    model_path="neuroarcane/dental-form-classifier",
+    tokenizer_name="neuroarcane/dental-form-classifier",
 ):
     """Load DistilBERT sequence classifier for dental form type prediction."""
     from transformers import AutoTokenizer, AutoModelForSequenceClassification
