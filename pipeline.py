@@ -156,6 +156,7 @@ def classify_and_fill_form(transcript, entities, tokenizer, model):
         "original_text": transcript,
         "status":        "ready_for_review",
         "timestamp":     datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "patient_id":    None,   # filled in by save_to_filing_system
     }
     print(f"[Role 4 — Iva] Form classified as: {form_type} ({confidence:.1%})")
     return form
@@ -171,6 +172,7 @@ def save_to_filing_system(patient_id, form, base_dir="filing_system"):
     time_str = datetime.now().strftime("%H-%M-%S")
     folder   = os.path.join(base_dir, patient_id, date_str)
     os.makedirs(folder, exist_ok=True)
+    form["patient_id"] = patient_id
 
     filename = f"{form['form_type']}_{time_str}.json"
     filepath = os.path.join(folder, filename)
