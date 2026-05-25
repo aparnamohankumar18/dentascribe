@@ -1,6 +1,6 @@
 # ============================================================
 # DentaScribe — AI Dental Voice Assistant
-# Role 6 — Demo & Presentation (Aparna) | covered by Ali
+# Role 6 — Demo & Presentation (Aparna)
 # Streamlit front-end that runs the full pipeline end-to-end
 # ============================================================
 
@@ -105,34 +105,144 @@ with st.sidebar:
     st.markdown("**Patient ID**")
     patient_id = st.text_input("Enter patient ID", value="P001", max_chars=20)
     st.markdown("---")
-    st.markdown("**Demo Mode**")
-    demo_mode = st.checkbox("Use sample transcript (no audio needed)", value=False)
-    SAMPLE_TRANSCRIPT = (
-        "The patient presents with moderate gingivitis and early periodontitis. "
-        "We prescribed amoxicillin 500 mg three times daily for one week and "
-        "recommended ibuprofen for pain management. A thorough cleaning was performed."
+    st.markdown("**Input Mode**")
+    input_mode = st.radio(
+        "Choose how to provide input",
+        ["🎙️ Record Live", "📁 Upload File", "📋 Demo Transcript"],
+        index=1,
+        label_visibility="collapsed",
     )
+    demo_mode = input_mode == "📋 Demo Transcript"
+
+    DEMO_SCENARIOS = {
+        # ── cleaning_form ────────────────────────────────────────
+        "🦠 Gingivitis & Cleaning": (
+            "The patient presents with moderate gingivitis and early periodontitis. "
+            "We prescribed amoxicillin 500 mg three times daily for one week and "
+            "recommended ibuprofen for pain management. A thorough cleaning was performed."
+        ),
+        # ── root_canal_form ──────────────────────────────────────
+        "🦷 Root Canal": (
+            "Patient has severe pulpitis in the lower left molar with signs of apical abscess. "
+            "Root canal therapy was initiated today. We administered lidocaine for local anaesthesia "
+            "and prescribed metronidazole 400 mg twice daily for five days along with paracetamol "
+            "for post-procedure pain relief."
+        ),
+        # ── emergency_form ───────────────────────────────────────
+        "🚨 Emergency Visit": (
+            "Emergency visit for acute pericoronitis around the lower wisdom tooth. "
+            "Significant swelling and trismus observed. Patient was given a chlorhexidine "
+            "mouthwash prescription and amoxicillin-clavulanate 875 mg twice daily. "
+            "Extraction of the third molar is recommended next week."
+        ),
+        # ── extraction_form ──────────────────────────────────────
+        "🔧 Tooth Extraction": (
+            "Extraction of the upper left second molar performed today due to severe dental caries "
+            "and irreversible pulpitis. Local anaesthesia with articaine was administered. "
+            "Patient prescribed amoxicillin 500 mg three times daily and ibuprofen 400 mg "
+            "for swelling. Post-extraction instructions provided."
+        ),
+        # ── filling_form ─────────────────────────────────────────
+        "🪥 Cavity Filling": (
+            "Composite resin filling placed on the lower right first molar. "
+            "Patient presented with moderate dental caries extending to the dentine. "
+            "No signs of pulpitis detected. Fluoride varnish applied after the procedure. "
+            "Patient advised to avoid hard foods for 24 hours."
+        ),
+        # ── crown_bridge_form ────────────────────────────────────
+        "👑 Crown & Bridge": (
+            "The patient requires a porcelain crown on the upper right premolar following "
+            "a cracked tooth diagnosis. Impressions were taken today. Temporary crown placed "
+            "and patient prescribed ibuprofen 400 mg as needed for sensitivity. "
+            "Final crown fitting is scheduled in two weeks."
+        ),
+        # ── periodontal_form ─────────────────────────────────────
+        "🌿 Periodontal Treatment": (
+            "Deep periodontal scaling performed on all four quadrants. "
+            "Patient has chronic periodontitis with 5 to 7 mm pocket depths. "
+            "Doxycycline 100 mg once daily prescribed for two weeks. "
+            "Chlorhexidine gel applied subgingivally. Follow-up in six weeks."
+        ),
+        # ── orthodontic_form ─────────────────────────────────────
+        "😁 Orthodontic Consultation": (
+            "Initial orthodontic consultation for Class II malocclusion with moderate crowding. "
+            "Patient presents with dental fluorosis on the upper incisors. "
+            "Treatment plan includes fixed braces over 18 months. "
+            "Fluoride gel application recommended before bonding appointment."
+        ),
+        # ── whitening_form ───────────────────────────────────────
+        "✨ Teeth Whitening": (
+            "Patient requested professional teeth whitening for mild to moderate tooth discolouration. "
+            "In-office bleaching performed using hydrogen peroxide gel. "
+            "Mild dentinal hypersensitivity noted post-procedure. "
+            "Prescribed fluoride toothpaste and advised to avoid coffee and tea for 48 hours."
+        ),
+        # ── consultation_form ────────────────────────────────────
+        "📋 General Consultation": (
+            "New patient consultation. Patient reports intermittent toothache and bleeding gums. "
+            "Examination reveals mild gingivitis and early signs of bruxism. "
+            "Dental radiographs taken. Recommended night guard for bruxism and "
+            "chlorhexidine mouthwash twice daily. Full treatment plan to be discussed at next visit."
+        ),
+    }
+
+    if "custom_transcript" not in st.session_state:
+        st.session_state["custom_transcript"] = list(DEMO_SCENARIOS.values())[0]
+
+    if demo_mode:
+        preset = st.selectbox(
+            "📋 Load a demo scenario",
+            options=["— type your own —"] + list(DEMO_SCENARIOS.keys()),
+        )
+        if preset != "— type your own —":
+            st.session_state["custom_transcript"] = DEMO_SCENARIOS[preset]
+
+        SAMPLE_TRANSCRIPT = st.text_area(
+            "Transcript (edit freely)",
+            key="custom_transcript",
+            height=160,
+        )
 
 # ── Main content ─────────────────────────────────────────────
 col_left, col_right = st.columns([1, 1], gap="large")
 
 with col_left:
-    st.markdown("### Step 1 — Upload Audio")
-    audio_file = st.file_uploader(
-        "Upload a WAV or MP3 recording of the dental consultation",
-        type=["wav", "mp3"],
-        disabled=demo_mode,
-    )
-    if demo_mode:
+    audio_file = None
+    recorded_audio = None
+
+    if input_mode == "🎙️ Record Live":
+        st.markdown("### Step 1 — Record Live Audio")
+        recorded_audio = st.audio_input("🎙️ Press to record the consultation")
+        if recorded_audio is not None:
+            st.success("✅ Recording captured — press play to review, then run the pipeline.")
+    elif input_mode == "📁 Upload File":
+        st.markdown("### Step 1 — Upload Audio")
+        audio_file = st.file_uploader(
+            "Upload a WAV, MP3 or M4A recording of the dental consultation",
+            type=["wav", "mp3", "m4a"],
+        )
+        if audio_file is not None:
+            st.markdown("**🔊 Preview — play to listen along while the model transcribes:**")
+            st.audio(audio_file)
+    else:  # Demo Transcript
+        st.markdown("### Step 1 — Demo Transcript")
         st.info("📌 Demo mode: using built-in sample transcript — no audio needed.")
 
     run_btn = st.button("▶ Run DentaScribe Pipeline", type="primary", use_container_width=True)
 
 # ── Pipeline execution ───────────────────────────────────────
 if run_btn:
-    if not demo_mode and audio_file is None:
-        st.error("Please upload an audio file or enable Demo Mode.")
+    # Pick the active audio source based on input mode
+    audio_source = recorded_audio if input_mode == "🎙️ Record Live" else audio_file
+    if input_mode != "📋 Demo Transcript" and audio_source is None:
+        if input_mode == "🎙️ Record Live":
+            st.error("Please record audio first, or switch to Upload File / Demo Transcript.")
+        else:
+            st.error("Please upload an audio file or switch input mode.")
         st.stop()
+
+    # Read bytes once so we can both transcribe and replay them in Results
+    audio_bytes = audio_source.getvalue() if audio_source is not None else None
 
     # Load models
     try:
@@ -148,12 +258,16 @@ if run_btn:
 
     # ── Step 1: Transcription ────────────────────────────────
     with st.spinner("🎙️ Transcribing audio…"):
-        if demo_mode:
+        if input_mode == "📋 Demo Transcript":
             transcript = SAMPLE_TRANSCRIPT
             st.success("✅ Demo transcript loaded.")
         else:
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
-                tmp.write(audio_file.read())
+            if input_mode == "🎙️ Record Live":
+                suffix = ".wav"
+            else:
+                suffix = "." + audio_source.name.split(".")[-1]
+            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+                tmp.write(audio_bytes)
                 tmp_path = tmp.name
             try:
                 transcript = transcribe_audio(tmp_path, whisper_processor, whisper_model)
@@ -193,6 +307,10 @@ if run_btn:
 
     # Tab 1 — Transcript & NER
     with tab1:
+        if audio_bytes is not None:
+            st.markdown("#### 🔊 Original Audio")
+            st.audio(audio_bytes)
+            st.caption("Play back the original recording while reading the transcript to spot ASR errors.")
         st.markdown("#### Transcript")
         st.info(transcript)
 
@@ -295,7 +413,7 @@ else:
             ("🎙️", "Step 1 — Speech Recognition", "Whisper (fine-tuned) converts dental audio to text  *(Andy)*"),
             ("🏷️", "Step 2 — Named Entity Recognition", "DistilBERT NER extracts diseases & medications  *(Ali)*"),
             ("📋", "Step 3 — Form Classification", "DistilBERT classifier picks the right form type  *(Iva)*"),
-            ("🗄️", "Step 4 — Filing System", "JSON form saved by patient ID + date  *(Koroush / Ali)*"),
+            ("🗄️", "Step 4 — Filing System", "JSON form saved by patient ID + date  *(Koroush)*"),
         ]
         for icon, title, desc in steps:
             st.markdown(

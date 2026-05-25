@@ -1,6 +1,6 @@
 # ============================================================
 # DentaScribe — Integration Pipeline
-# Role 5 — Integration & Backend (Koroush) | covered by Ali
+# Role 5 — Integration & Backend (Koroush)
 # Connects all models end-to-end: Whisper → NER → Form → Filing
 # ============================================================
 
@@ -10,7 +10,7 @@ from datetime import datetime
 
 
 # ── Role 1 — Andy: Load Whisper ASR ─────────────────────────
-def load_whisper(model_path="openai/whisper-base"):
+def load_whisper(model_path="openai/whisper-small"):
     """Load Whisper processor and model for speech recognition."""
     from transformers import WhisperProcessor, WhisperForConditionalGeneration
     processor = WhisperProcessor.from_pretrained(model_path)
@@ -21,13 +21,13 @@ def load_whisper(model_path="openai/whisper-base"):
 
 
 # ── Role 2 — Ali: Load NER Model ────────────────────────────
-def load_ner(model_path="dental_ner_model"):
+def load_ner(model_path="neuroarcane/dental-ner-model"):
     """Load DistilBERT NER pipeline for dental entity extraction."""
     from transformers import pipeline
     ner_pipe = pipeline(
         "token-classification",
         model=model_path,
-        aggregation_strategy="simple",
+        aggregation_strategy="first",
     )
     print(f"[Role 2 — Ali] NER model loaded from: {model_path}")
     return ner_pipe
@@ -35,8 +35,8 @@ def load_ner(model_path="dental_ner_model"):
 
 # ── Role 4 — Iva: Load Form Classifier ──────────────────────
 def load_form_classifier(
-    model_path="iva_form_classifier/final",
-    tokenizer_name="iva_form_classifier/final",
+    model_path="neuroarcane/dental-form-classifier",
+    tokenizer_name="neuroarcane/dental-form-classifier",
 ):
     """Load DistilBERT sequence classifier for dental form type prediction."""
     from transformers import AutoTokenizer, AutoModelForSequenceClassification
@@ -92,7 +92,7 @@ def extract_entities(transcript, ner_pipeline):
     for ent in entities:
         word  = ent.get("word", "")
         label = ent.get("entity_group", ent.get("entity", ""))
-        score = ent.get("score", 0)
+        score = float(ent.get("score", 0))
 
         if word.startswith("##") and merged:
             # Subword continuation — append to previous entity
@@ -101,8 +101,10 @@ def extract_entities(transcript, ner_pipeline):
         else:
             merged.append({"word": word.strip(), "label": label, "score": round(score, 4)})
 
-    # Filter out very short leftovers
-    cleaned = [e for e in merged if len(e["word"].strip()) > 2]
+    # Filter out very short leftovers and generic non-clinical words
+    STOP_WORDS = {"pain", "mg", "daily", "week", "oral", "one", "two", "three"}
+    cleaned = [e for e in merged if len(e["word"].strip()) > 2
+               and e["word"].lower() not in STOP_WORDS]
 
     # Complete truncated words by matching against the original transcript
     transcript_words = transcript.lower().split()
@@ -154,6 +156,7 @@ def classify_and_fill_form(transcript, entities, tokenizer, model):
         "original_text": transcript,
         "status":        "ready_for_review",
         "timestamp":     datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "patient_id":    None,   # filled in by save_to_filing_system
     }
     print(f"[Role 4 — Iva] Form classified as: {form_type} ({confidence:.1%})")
     return form
@@ -169,6 +172,7 @@ def save_to_filing_system(patient_id, form, base_dir="filing_system"):
     time_str = datetime.now().strftime("%H-%M-%S")
     folder   = os.path.join(base_dir, patient_id, date_str)
     os.makedirs(folder, exist_ok=True)
+    form["patient_id"] = patient_id
 
     filename = f"{form['form_type']}_{time_str}.json"
     filepath = os.path.join(folder, filename)
