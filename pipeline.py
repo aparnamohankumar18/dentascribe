@@ -35,8 +35,8 @@ def load_ner(model_path="dental_ner_model"):
 
 # ── Role 4 — Iva: Load Form Classifier ──────────────────────
 def load_form_classifier(
-    model_path="iva_form_classifier/final",
-    tokenizer_name="iva_form_classifier/final",
+    model_path="iva_form_classifier",
+    tokenizer_name="iva_form_classifier",
 ):
     """Load DistilBERT sequence classifier for dental form type prediction."""
     from transformers import AutoTokenizer, AutoModelForSequenceClassification
