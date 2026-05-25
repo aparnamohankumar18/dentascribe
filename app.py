@@ -203,8 +203,8 @@ col_left, col_right = st.columns([1, 1], gap="large")
 with col_left:
     st.markdown("### Step 1 — Upload Audio")
     audio_file = st.file_uploader(
-        "Upload a WAV or MP3 recording of the dental consultation",
-        type=["wav", "mp3"],
+        "Upload a WAV, MP3 or M4A recording of the dental consultation",
+        type=["wav", "mp3", "m4a"],
         disabled=demo_mode,
     )
     if demo_mode:
@@ -236,7 +236,8 @@ if run_btn:
             transcript = SAMPLE_TRANSCRIPT
             st.success("✅ Demo transcript loaded.")
         else:
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
+            suffix = "." + audio_file.name.split(".")[-1]
+            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
                 tmp.write(audio_file.read())
                 tmp_path = tmp.name
             try:
