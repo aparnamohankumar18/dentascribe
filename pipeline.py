@@ -13,8 +13,9 @@ from datetime import datetime
 def load_whisper(model_path="openai/whisper-small"):
     """Load Whisper processor and model for speech recognition."""
     from transformers import WhisperProcessor, WhisperForConditionalGeneration
-    processor = WhisperProcessor.from_pretrained(model_path)
-    model     = WhisperForConditionalGeneration.from_pretrained(model_path)
+    token = st.secrets["HF_TOKEN"]
+    processor = WhisperProcessor.from_pretrained(model_path,token=token)
+    model     = WhisperForConditionalGeneration.from_pretrained(model_path,token=token)
     model.eval()
     print(f"[Role 1 — Andy] Whisper loaded from: {model_path}")
     return processor, model
@@ -24,9 +25,11 @@ def load_whisper(model_path="openai/whisper-small"):
 def load_ner(model_path="neuroarcane/dental-ner-model"):
     """Load DistilBERT NER pipeline for dental entity extraction."""
     from transformers import pipeline
+    token = st.secrets["HF_TOKEN"]
     ner_pipe = pipeline(
         "token-classification",
         model=model_path,
+        token=token
         aggregation_strategy="first",
     )
     print(f"[Role 2 — Ali] NER model loaded from: {model_path}")
@@ -40,8 +43,9 @@ def load_form_classifier(
 ):
     """Load DistilBERT sequence classifier for dental form type prediction."""
     from transformers import AutoTokenizer, AutoModelForSequenceClassification
-    tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
-    model     = AutoModelForSequenceClassification.from_pretrained(model_path)
+    token = st.secrets["HF_TOKEN"]
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_name,token=token)
+    model     = AutoModelForSequenceClassification.from_pretrained(model_path,token=token)
     model.eval()
     print(f"[Role 4 — Iva] Form classifier loaded from: {model_path}")
     return tokenizer, model
